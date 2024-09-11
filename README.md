@@ -1,11 +1,13 @@
-# BlinkDetector
-## Objetivo del proyecto
-En este proyecto se abordan dos aproximaciones para la tarea de predicción de parpadeo a través de pares de imágenes de ojos. Dado que se trata de imágenes, los modelos entrenados deben ser redes neuronales convolucionales.
+## Project Objective
 
-La primera aproximación consiste en construir y entrenar una red neuronal convolucional desde cero y entrenar la totalidad de sus parámetros. Esta red cuen- ta con una capa de entrada, varias capas convolucionales y de pooling, una flatten, y dos fully-connected, siendo la última de ellas la capa de salida, la cual posee una única unidad neuronal, dado que se trata de un problema de clasificación binaria.
+This project explores two approaches for blink prediction using pairs of eye images. Given that the task involves image data, the models are based on Convolutional Neural Networks (CNNs).
 
-Por otro lado, la segunda aproximación consiste en utilizar una red convolu- cional ya entrenada y modificarla, adaptándola a este problema, lo que se conoce como transfer learning. Se ha elegido que el modelo utilizado sea DenseNet121 entrenado sobre ImageNet, que destaca entre el resto de redes pre-entrenadas por ser la que menor número de parámetros tiene y menor tamaño ocupa.
+1. **Custom CNN Construction:**
+   - Build and train a Convolutional Neural Network (CNN) from scratch. The network includes an input layer, several convolutional and pooling layers, a flatten layer, and two fully-connected layers. The final fully-connected layer serves as the output layer with a single neuron, suitable for binary classification.
 
-Asimismo, en ambas aproximaciones, la función de pérdidas es BinaryFocal- Crossentropy, la cual obtiene buenos resultados cuando el dataset está desbalan- ceado, puesto que la penalización es menor cuando las instancias son más fáciles de predecir, y mayor cuando son más difíciles, que es el caso de los ojos cerrados.
+2. **Transfer Learning with Pre-trained CNN:**
+   - Utilize a pre-trained CNN and adapt it to the task through transfer learning. The chosen model is DenseNet121, pre-trained on ImageNet, selected for its compact size and relatively small number of parameters compared to other pre-trained networks.
 
-En cuanto al algoritmo de optimización, se utiliza Adam.
+Both approaches use Binary Focal Cross-Entropy as the loss function, which is effective for imbalanced datasets by penalizing easier-to-predict instances less and harder ones more, which is particularly useful for closed-eye prediction.
+
+The optimization algorithm used is Adam.
